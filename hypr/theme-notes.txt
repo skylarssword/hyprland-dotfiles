@@ -1,0 +1,17 @@
+SPOTIFY THEMES
+
+TEXT THEME
+-----------
+pywal-spicetify text -n
+spicetify apply
+
+DRIBBBLISH THEME
+----------------
+pywal-spicetify Dribbblish -n
+~/.local/bin/dribbblish-pywal-fix
+spicetify apply
+
+SCRIPTS
+-------
+~/.local/bin/dribbblish-pywal-fix
+~/.local/bin/wal-video-fix
