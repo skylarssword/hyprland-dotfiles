@@ -1,2 +1,0 @@
-local name = "animations-new.lua"
-load_variant(name,"animations")
