@@ -14,6 +14,10 @@
 require("colors")   -- pywal/Material You palette — do not edit manually
 require("core")     -- everything: monitor, env, input, gestures, appearance,
                     -- layouts, window rules, keybindings, autostart, plugins
+require("monitors")
+
+-- Workspace slide animation (verthori plugin)
+hl.animation({ leaf = "workspaces", enabled = true, speed = 8, bezier = "smooth", style = "slidevert" })
 
 -- =====================
 -- PRESETS — ANIMATIONS
@@ -32,6 +36,8 @@ require("core")     -- everything: monitor, env, input, gestures, appearance,
 -- require("presets.animations.end4")
 -- require("presets.animations.default")
 -- require("presets.animations.disabled")
+
+
 
 -- =====================
 -- PRESETS — DECORATIONS

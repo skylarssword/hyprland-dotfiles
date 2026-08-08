@@ -10,6 +10,11 @@
 --            APPEARANCE · ANIMATIONS · LAYOUTS & MISC · WINDOW RULES
 --            KEYBINDINGS · AUTOSTART · PLUGINS
 
+-- LUA ONLY CHECKS LUA SYNTAX.
+-- INVALID OPTIONS, WRONG TABLE KEYS, OR UNSUPPORTED VALUES
+-- MAY FAIL SILENTLY BECAUSE THEY ARE JUST LUA TABLE DATA.
+-- WHEN EDITING CORE OR LOADER, VERIFY OPTIONS AGAINST THE
+-- HYPRLAND WIKI/API DOCUMENTATION.
 
 -- =====================
 -- FUNCTIONS
@@ -218,7 +223,7 @@ hl.config({
 
         -- Swap shader here if needed:
         -- screen_shader = os.getenv("HOME") .. "/.config/hypr/shaders/vibrance.frag",
-        screen_shader = os.getenv("HOME") .. "/.config/hypr/shaders/oled-vibrance.frag",
+           screen_shader = os.getenv("HOME") .. "/.config/hypr/shaders/oled-vibrance.frag",
     },
 })
 
@@ -605,7 +610,7 @@ hl.config({
             gesture_distance = 300,
             scale            = 0.7,
             workspace_gap    = 200,
-            layout           = "horizontal",
+            layout           = "vertical",
             wallpaper        = 0,
             blur             = false,
 
@@ -627,6 +632,3 @@ hl.config({
         },
     },
 })
-
--- Workspace slide animation (verthori plugin)
-hl.animation({ leaf = "workspaces", enabled = true, speed = 8, bezier = "smooth", style = "slide" })
