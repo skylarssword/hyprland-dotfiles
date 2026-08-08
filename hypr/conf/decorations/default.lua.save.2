@@ -1,0 +1,37 @@
+-- -----------------------------------------------------
+-- General window decoration
+-- name: "Default"
+-- -----------------------------------------------------
+
+hl.config({
+    decoration = {
+        rounding = 20,
+        active_opacity = 0.7,
+        inactive_opacity = 0.7,
+        fullscreen_opacity = 1.0,
+        rounding_power = 3,
+
+        shadow = {
+            enabled = true,
+            range = 32,
+            render_power = 7,
+            color = "rgba(00000050)",
+        },
+
+        blur = {
+            enabled   = true,
+            size      = 5,
+            passes    = 3,
+            new_optimizations = on,
+            ignore_opacity = true,
+            xray = false,
+            vibrancy = 0.0696,
+	  --  noise = 0.06,
+	 --  brightness = 1.2,
+        },
+
+--  vibrance shader here comment to disable:
+      --  screen_shader = os.getenv("HOME") .. "/.config/hypr/shaders/vibrance.frag",
+      screen_shader = os.getenv("HOME") .. "/.config/hypr/shaders/oled-vibrance.frag",
+    },
+})

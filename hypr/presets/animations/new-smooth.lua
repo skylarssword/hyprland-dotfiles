@@ -86,9 +86,8 @@ hl.animation({
 hl.animation({
     leaf = "workspaces",
     enabled = true,
-    speed = 7,
-    bezier = "smooth",
-    style = "slidevert" --slide or slidevert
+    speed = 8,
+    bezier = "smooth"
 })
 
 hl.animation({
