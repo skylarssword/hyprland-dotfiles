@@ -212,13 +212,13 @@ hl.config({
         blur = {
             enabled           = true,
             size              = 4,
-            passes            = 4,
+            passes            = 5,
             new_optimizations = true,
             ignore_opacity    = true,
             xray              = false,
-            vibrancy          = 0.0696,
+            vibrancy          = 0.2,
             -- noise            = 0.06,
-            -- brightness       = 1.1,
+            brightness       = 1.1,
         },
 
         -- Swap shader here if needed:
@@ -242,10 +242,6 @@ hl.config({
     dwindle = {
         smart_split    = false,
         preserve_split = true,
-    },
-
-    master = {
-        -- new_status = "master"
     },
 
     binds = {
@@ -278,31 +274,53 @@ hl.layer_rule({
     ignore_alpha = 0.05,
 })
 
+hl.window_rule({
+    name = "suppress-maximize-events",
+    suppress_event = "maximize",
+})
+
+-- Kitty
+hl.window_rule({
+    name  = "kitty-floating",
+    match = { class = "kitty" },
+    size   = "800 500",
+    center = true
+})
+
+
 -- pavucontrol
 hl.window_rule({
     name   = "pavucontrol",
-    match  = { class = "*org.pulseaudio.pavucontrol*" },
+    match  = { class = ".*org.pulseaudio.pavucontrol.*" },
     float  = true,
     center = true,
-    size   = "700 600"
+    size   = "700 600",
+    opacity = "1.0 override"
 })
 
 -- Sober / Roblox — force full opacity
 hl.window_rule({ match = { class = ".*Sober.*"  }, opacity = "1.0 override" })
 hl.window_rule({ match = { class = ".*roblox.*" }, opacity = "1.0 override" })
 
--- Zen browser
+-- Browsers
 hl.window_rule({ match = { class = ".*zen.*"    }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = "chromium"   }, opacity = "1.0 override" })
 
 -- Media
-hl.window_rule({ match = { class = ".*mpv.*"    }, opacity = "1.0 override" })
-
+hl.window_rule({ match = { class = ".*mpv.*"                   }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*qalculate.*"             }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*org.gnome.Nautilus.*"    }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*org.pulseaudio.pavucontrol.*"    }, opacity = "1.0 override" })
 -- Games
-hl.window_rule({ match = { class = ".*Minecraft.*"         }, opacity = "1.0 override" })
-hl.window_rule({ match = { class = ".*steam_app_default.*" }, opacity = "1.0 override" })
-hl.window_rule({ match = { class = ".*paranormasight.*"    }, opacity = "1.0 override" })
-hl.window_rule({ match = { class = ".*chrono.*"            }, opacity = "1.0 override" })
-hl.window_rule({ match = { class = ".*octopath.*"          }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*Minecraft.*"               }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*steam_app_default.*"       }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*paranormasight.*"          }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*chrono.*"                  }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*octopath.*"                }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*Jackknife.*"               }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*Trieste.*"                 }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = ".*sweethome.exe.*"           }, opacity = "1.0 override" })
+
 
 -- Welcome App
 hl.window_rule({
@@ -521,16 +539,22 @@ hl.bind(mainMod .. " + CTRL + K",     hl.dsp.exec_cmd("~/.config/hypr/scripts/ke
 
 -- Tide Island
 hl.bind("SUPER + SLASH",       hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide toggleSearch"),              { description = "App search" })
-hl.bind("SUPER + D",           hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide toggleSearch"),              { description = "App search (alt)" })
+--hl.bind("SUPER + D",           hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide toggleSearch"),              { description = "App search (alt)" })
 hl.bind("SUPER + CTRL + W",    hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call wallpaper-picker toggle"),       { description = "Wallpaper picker" })
-hl.bind("SUPER + C",           hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide toggleControlCenter"),      { description = "Control center" })
-hl.bind("SUPER + P",           hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide togglePowerMenu"),          { description = "Power menu" })
-hl.bind("SUPER + N",           hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide toggleNotificationCenter"), { description = "Notification center" })
-hl.bind("SUPER + R",           hl.dsp.exec_cmd("qs ipc call radialMenu open"),                                         { description = "Radial menu" })
+--hl.bind("SUPER + C",           hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide toggleControlCenter"),      { description = "Control center" })
+--hl.bind("SUPER + P",           hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide togglePowerMenu"),          { description = "Power menu" })
+--hl.bind("SUPER + N",           hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call tide toggleNotificationCenter"), { description = "Notification center" })
+--hl.bind("SUPER + R",           hl.dsp.exec_cmd("qs ipc call radialMenu open"),                                         { description = "Radial menu" })
 hl.bind(mainMod .. " + ALT + M",  hl.dsp.exec_cmd("qs ipc call display toggle"),   { description = "Display manager" })
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("qs ipc call sidebar toggle"),   { description = "Sidebar widget" })
 hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd("qs ipc call calendar toggle"),  { description = "Calendar widget" })
 hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("qs ipc call power toggle"),     { description = "Power menu (alt)" })
+
+hl.bind("SUPER + D", hl.dsp.exec_cmd("tide-search"), { description = "App search" })
+hl.bind("SUPER + C", hl.dsp.exec_cmd("tide-controlcenter"), { description = "Control center" })
+hl.bind("SUPER + P", hl.dsp.exec_cmd("tide-power"), { description = "Power menu" })
+hl.bind("SUPER + N", hl.dsp.exec_cmd("tide-notifications"), { description = "Notifications" })
+hl.bind("SUPER + ALT + I", hl.dsp.exec_cmd("qs ipc -p /usr/share/tide-island call focus-mode toggle"), { description = "Focus Mode" })
 
 -- Overview (scrolloverview plugin)
 hl.bind("SUPER + TAB", function()
@@ -608,8 +632,8 @@ hl.config({
     plugin = {
         scrolloverview = {
             gesture_distance = 300,
-            scale            = 0.7,
-            workspace_gap    = 200,
+            scale            = 0.4,
+            workspace_gap    = 30,
             layout           = "vertical",
             wallpaper        = 0,
             blur             = false,

@@ -19,6 +19,12 @@ require("monitors")
 -- Workspace slide animation (verthori plugin)
 hl.animation({ leaf = "workspaces", enabled = true, speed = 8, bezier = "smooth", style = "slidevert" })
 
+-- Define Smooth Bezier
+hl.curve("smooth", {
+    type = "bezier",
+    points = { {0.12, 1.0}, {0.22, 1.0} }
+})
+
 -- =====================
 -- PRESETS — ANIMATIONS
 -- =====================
